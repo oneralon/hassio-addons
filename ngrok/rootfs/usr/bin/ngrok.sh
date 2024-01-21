@@ -85,4 +85,9 @@ done
 configfile=$(cat $configPath)
 bashio::log.debug "Config file: \n${configfile}"
 bashio::log.info "Starting ngrok..."
-ngrok start --config $configPath --all
+
+if [[ $edge != "null" ]]; then
+  ngrok tunnel --label --edge=$edge
+else
+  ngrok start --config $configPath --all
+fi
