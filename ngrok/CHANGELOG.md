@@ -1,5 +1,10 @@
 ## Changes
 
+### 2.1.9
+
+- Remove static address if port provided only
+- Add domain configuration support
+
 ### 2.1.8
 
 - Fix S6 error fixes [#12](https://github.com/dy1io/hassio-addons/issues/12)

@@ -28,13 +28,7 @@ for id in $(bashio::config "tunnels|keys"); do
     echo "    proto: $proto" >> $configPath
   fi
   addr=$(bashio::config "tunnels[${id}].addr")
-  if [[ $addr != "null" ]]; then
-    if [[ $addr =~ ^([1-9]|[1-5]?[0-9]{2,4}|6[1-4][0-9]{3}|65[1-4][0-9]{2}|655[1-2][0-9]|6553[1-5])$ ]]; then
-      echo "    addr: 172.30.32.1:$addr" >> $configPath
-    else
-      echo "    addr: $addr" >> $configPath
-    fi
-  fi
+  echo "    addr: $addr" >> $configPath
   inspect=$(bashio::config "tunnels[${id}].inspect")
   if [[ $inspect != "null" ]]; then
     echo "    inspect: $inspect" >> $configPath
@@ -78,6 +72,10 @@ for id in $(bashio::config "tunnels|keys"); do
   metadata=$(bashio::config "tunnels[${id}].metadata")
   if [[ $metadata != "null" ]]; then
     echo "    metadata: $metadata" >> $configPath
+  fi
+  domain=$(bashio::config "tunnels[${id}].domain")
+  if [[ $domain != "null" ]]; then
+    echo "    domain: $auth" >> $configPath
   fi
 done
 configfile=$(cat $configPath)
