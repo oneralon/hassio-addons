@@ -75,7 +75,11 @@ for id in $(bashio::config "tunnels|keys"); do
   fi
   domain=$(bashio::config "tunnels[${id}].domain")
   if [[ $domain != "null" ]]; then
-    echo "    domain: $auth" >> $configPath
+    echo "    domain: $domain" >> $configPath
+  fi
+  edge=$(bashio::config "tunnels[${id}].edge")
+  if [[ $edge != "null" ]]; then
+    echo "    edge: $edge" >> $configPath
   fi
 done
 configfile=$(cat $configPath)

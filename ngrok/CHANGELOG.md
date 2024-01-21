@@ -1,5 +1,9 @@
 ## Changes
 
+### 2.1.10
+
+- Add edge configuration support
+
 ### 2.1.9
 
 - Remove static address if port provided only
