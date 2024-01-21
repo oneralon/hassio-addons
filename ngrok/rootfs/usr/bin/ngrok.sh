@@ -83,7 +83,10 @@ for id in $(bashio::config "tunnels|keys"); do
   fi
 done
 configfile=$(cat $configPath)
+
 bashio::log.debug "Config file: \n${configfile}"
+echo "Config:"
+cat ${configPath}
 bashio::log.info "Starting ngrok..."
 
 if [[ $edge != "null" ]]; then
